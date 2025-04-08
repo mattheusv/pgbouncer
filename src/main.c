@@ -182,6 +182,7 @@ char *cf_client_tls_ca_file;
 char *cf_client_tls_cert_file;
 char *cf_client_tls_key_file;
 char *cf_client_tls_ciphers;
+char *cf_client_tls13_ciphers;
 char *cf_client_tls_dheparams;
 char *cf_client_tls_ecdhecurve;
 
@@ -257,6 +258,7 @@ static const struct CfKey bouncer_params [] = {
 	CF_ABS("client_tls_ca_file", CF_STR, cf_client_tls_ca_file, 0, ""),
 	CF_ABS("client_tls_cert_file", CF_STR, cf_client_tls_cert_file, 0, ""),
 	CF_ABS("client_tls_ciphers", CF_STR, cf_client_tls_ciphers, 0, "default"),
+	CF_ABS("client_tls13_ciphers", CF_STR, cf_client_tls13_ciphers, 0, NULL),
 	CF_ABS("client_tls_dheparams", CF_STR, cf_client_tls_dheparams, 0, "auto"),
 	CF_ABS("client_tls_ecdhcurve", CF_STR, cf_client_tls_ecdhecurve, 0, "auto"),
 	CF_ABS("client_tls_key_file", CF_STR, cf_client_tls_key_file, 0, ""),
@@ -967,6 +969,7 @@ static void cleanup(void)
 	xfree(&cf_client_tls_cert_file);
 	xfree(&cf_client_tls_key_file);
 	xfree(&cf_client_tls_ciphers);
+	xfree(&cf_client_tls13_ciphers);
 	xfree(&cf_client_tls_dheparams);
 	xfree(&cf_client_tls_ecdhecurve);
 	xfree(&cf_server_tls_protocols);
